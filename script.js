@@ -15,9 +15,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-const navLinks = document.querySelector(".nav-links");
-function onToggleMenu(e) {
-    e.name = e.name === "menu" ? "close" : "menu"
-    navLinks.classList.toggle("top-0");
+function onToggleMenu(icon) {
+    const navLinks = document.querySelector(".nav-links");
+    const isMenuOpen = navLinks.classList.contains("top-0");
+    const menuIcon = document.getElementById("MenuIcon");
+    if (isMenuOpen) {
+        navLinks.classList.remove("top-0");
+    } else {
+        navLinks.classList.add("top-0");
+    }
+    if (menuIcon.name == "menu"){
+        menuIcon.setAttribute("name", "close");
+    } else {
+        menuIcon.setAttribute("name", "menu");
+    }
 }
 
